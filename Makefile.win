@@ -1,0 +1,43 @@
+# Project: IIT Students Information System
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o menu.o input.o result.o course.o result1.o
+LINKOBJ  = main.o menu.o input.o result.o course.o result1.o
+LIBS     = -L"F:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"F:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"F:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"F:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"F:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"F:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"F:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "IIT Students Information System.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+menu.o: menu.c
+	$(CC) -c menu.c -o menu.o $(CFLAGS)
+
+input.o: input.c
+	$(CC) -c input.c -o input.o $(CFLAGS)
+
+result.o: result.c
+	$(CC) -c result.c -o result.o $(CFLAGS)
+
+course.o: course.c
+	$(CC) -c course.c -o course.o $(CFLAGS)
+
+result1.o: result1.c
+	$(CC) -c result1.c -o result1.o $(CFLAGS)
